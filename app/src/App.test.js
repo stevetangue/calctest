@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import sum from './sum';
-import sub from './sub';
-import mul from './mul';
-import div from './div';
-import pow from './pow';
-import sqrt from './sqrt';
-import log from './log';
-import pi from './pi';
+import sum from './components/sum';
+import sub from './components/sub';
+import mul from './components/mul';
+import div from './components/div';
+import pow from './components/pow';
+import sqrt from './components/sqrt';
+import log from './components/log';
+import pi from './components/pi';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
