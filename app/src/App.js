@@ -16,28 +16,25 @@ class App extends Component {
     .then(results => {
       return results.json();
     }).then(data => {
-      let cal = data.map((calcul, key) => {
-      function argInputs() {
-        if(calcul.arguments === 2) {
-          return (
-            <div>
-              <input id={calcul.operation} className="input-arg" size="4" placeholder = "Arg1" />
-              <input id={calcul.operation} className="input-arg" size="4" placeholder = "Arg2"/>
-            </div>
-          );
-        } else if (calcul.arguments === 1) {
-          return <input id={calcul.operation} className="input-arg" size="4" placeholder = "Arg1"/>;
-        } else {
-          return 'N/A';
+        let cal = data.map((calcul, key) => {
+
+        const argInputs = () => {
+          if(calcul.arguments === 2) {
+            return (
+              <div>
+                <input id={calcul.operation} className="input-arg" size="4" placeholder="Arg2" disabled />
+                <input id={calcul.operation} className="input-arg" size="4" placeholder="Arg1" disabled />
+              </div>
+            );
+          } else if (calcul.arguments === 1) {
+              return <input id={calcul.operation} className="input-arg" size="4" placeholder="Arg1" disabled />;
+          } else {
+              return 'N/A';
+          }
         }
-      }
 
         const isAdd = () => {
-          if(calcul.operation === "add") {
-            return <Calculations />;
-          } else {
-            return <div className="todocomment">TODO - {calcul.operation}</div>
-          }
+            return <Calculations calcul={calcul} />;
         }
 
         return (
@@ -46,7 +43,7 @@ class App extends Component {
             <td>{argInputs()}</td>
             <td>{calcul.symbol}</td>
             <td>{calcul.description}</td>
-            <td>{isAdd()}</td>
+            <td className="bg text-right">{isAdd()}</td>
           </tr>
         )
       })
@@ -65,7 +62,7 @@ class App extends Component {
               <th>Arguments </th>
               <th>Symbol </th>
               <th>Description </th>
-              <th className="text-left">Calculation Components </th>
+              <th className="text-right">Calculation Components </th>
             </tr>
           </thead>
           <tbody>
