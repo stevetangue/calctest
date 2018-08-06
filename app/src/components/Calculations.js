@@ -20,34 +20,45 @@ class Calculation extends Component {
       };
   }
 
-  // Form submit service
   onChange = (e) => {
-
     this.setState({ [e.target.name]: e.target.value });
   }
 
   onSubmit = (e) => {
-
     const serviceUrl = 'http://calctest.iesim.biz';
     e.preventDefault();
     const {op1, op2} = this.state;
 
     let caclop = this.props.calcul.operation;
 
-    // if(op1 === "" || op2 === "") {
-    //   // TODO output message error + styles on input
-    //   this.setState({error: "Must not be empty."});
-    //   return console.log("Must not be empty.");
-    // }
-    // if(isNaN(op1) || isNaN(op2)) {
-    //   // TODO output message error + styles on input
-    //   this.setState({error: "Must be a number."});
-    //   return console.log("Must be a number.");
-    // }
+    // TODO validation could refactor this better
+    if (this.props.calcul.arguments === 2 ) {
+      if(op1 === "" || op2 === "") {
+        this.setState({error: "Must not be empty."});
+        return console.log("Must not be empty.");
+      }
+      if(isNaN(op1) || isNaN(op2)) {
+        this.setState({error: "Must be a number."});
+        return console.log("Must be a number.");
+      }
+    } else if (this.props.calcul.arguments === 1) {
+      if(op1 === "") {
+        this.setState({error: "Must not be empty."});
+        return console.log("Must not be empty.");
+      }
+      if(isNaN(op1)) {
+        this.setState({error: "Must be a number."});
+        return console.log("Must be a number.");
+      }
+    }
 
     axios.post(serviceUrl + '/'+caclop+'?op1='+op1+'&op2='+op2)
       .then((response) => {
-        this.setState({result: response.data.result});
+        this.setState({
+          result: response.data.result,
+          error: null,
+        });
+
       })
       .catch((error) => {
         console.log(error);
