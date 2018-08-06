@@ -20,8 +20,9 @@ Builds the app for production to the `build` folder.
 Recommended using Chrome - works and tested in Firefox and Safari.
 
 
-
+//TODO build calculator ui/ux
 //TODO refactor validations condition
+//TODO debug test "renders without crashing"
 //TODO test components (yarn add --dev react-test-renderer)
 //TODO try Enzyme (npm i --save-dev enzyme enzyme-adapter-react-16)
 //TODO use xpress or restify to mimic this service

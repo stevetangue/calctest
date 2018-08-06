@@ -68,7 +68,7 @@ class Calculation extends Component {
 
 
   render() {
-    const { op1, op2, result, error, symbol } = this.state;
+    const { op1, op2, result, error } = this.state;
     const calcul = this.props.calcul;
 
     const argInputs = () => {
