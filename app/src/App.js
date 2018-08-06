@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Calculations from  './components/Calculations';
-
+import CalculatorApp from  './CalculatorApp';
 
 class App extends Component {
   constructor(props) {
@@ -70,6 +70,7 @@ class App extends Component {
           </tbody>
         </table>
 
+        <CalculatorApp />
       </div>
     );
   }
