@@ -20,7 +20,12 @@ Builds the app for production to the `build` folder.
 Recommended using Chrome - works and tested in Firefox and Safari.
 
 
-//TODO build calculator ui/ux
+~~//TODO build calculator ui/ux~~
+//TODO build calculator functionality
+..* build sub components input
+..* build sub components numbers 0,1-9
+..* build sub components operation ln log10 % ^ + - / * =
+
 //TODO refactor validations condition
 //TODO debug test "renders without crashing"
 //TODO test components (yarn add --dev react-test-renderer)

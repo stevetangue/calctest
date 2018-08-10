@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
 
 
+function Calnum(props) {
+  return (
+      <button>
+        {props.value}
+      </button>
+  )
+}
+
 class CalculatorApp extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
+    this.state = {
+        squares: Array(9).fill(null),
+    };
   }
+  renderCalnum(i) {
+    return (
+      <Calnum
+        value={i}
+        onClick= {() => this.props.onClick(i)}
+        />
+    );
+  }
+
   render() {
     return (
       <div>
-          <pre>
-            <code>
-             //TODO
-            </code>
-          </pre>
-
+          <span>
+            todo
+          </span>
           <div className="calculator">
             <div className="cal-head">
               <input placeholder="0"/>
@@ -23,19 +41,19 @@ class CalculatorApp extends Component {
               <button className="cbg">e</button>
               <button className="cbg">^</button>
               <button className="cbgo">&divide;</button>
-              <button>7</button>
-              <button>8</button>
-              <button>9</button>
+              {this.renderCalnum(7)}
+              {this.renderCalnum(8)}
+              {this.renderCalnum(9)}
               <button className="cbgo">&times;</button>
-              <button>4</button>
-              <button>5</button>
-              <button>6</button>
+              {this.renderCalnum(4)}
+              {this.renderCalnum(5)}
+              {this.renderCalnum(6)}
               <button className="cbgo">-</button>
-              <button>1</button>
-              <button>2</button>
-              <button>3</button>
+              {this.renderCalnum(1)}
+              {this.renderCalnum(2)}
+              {this.renderCalnum(3)}
               <button className="cbgo">+</button>
-              <button>0</button>
+              {this.renderCalnum(0)}
               <button>√</button>
               <button>ln</button>
               <button className="cbgb">=</button>

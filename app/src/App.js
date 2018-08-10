@@ -34,7 +34,7 @@ class App extends Component {
         }
 
         const isAdd = () => {
-            return <Calculations calcul={calcul} />;
+            return <Calculations calcul={calcul} />
         }
 
         return (
